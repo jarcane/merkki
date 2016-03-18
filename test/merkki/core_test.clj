@@ -13,6 +13,19 @@
     (is (= (h5 "Dave") "##### Dave  \n"))
     (is (= (h6 "Dave") "###### Dave  \n"))))
 
+(deftest u-header-test
+  (testing "Expect two line string, with second line matching length of first with underline character"
+    (is (= (u-header "=" "Dave")
+           (str "Dave  \n"
+                "====  \n"))))
+  (testing "Test curried forms of u-header"
+    (is (= (uh1 "Dave is fat")
+           (str "Dave is fat  \n"
+                "===========  \n")))
+    (is (= (uh2 "Dave is fat")
+           (str "Dave is fat  \n"
+                "-----------  \n")))))
+
 (deftest em-test
   (testing "Expect emphasised string"
     (is (= (em "Dave") "*Dave*"))))
