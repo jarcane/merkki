@@ -1,12 +1,18 @@
 (ns merkki.core)
 
+(defn break
+  "Markdown standard allows hard-wrapping by not creating a new paragraph block automatically on new line.
+   In order to guarantee that a <br>/newline is produced, a line must end in two spaces followed by new line.
+   See: https://daringfireball.net/projects/markdown/syntax#p"
+  [s]
+  (str s "  \n"))
+
 (defn header
   "Given a number and a string, tags the string as that header level and adds a new line"
   [n s]
   (str (reduce str (take n (repeat "#")))
        " "
-       s
-       "  \n"))
+       (break s)))
 
 ;; Pre-provided curried versions of header for quicker use
 (def h1 (partial header 1))
@@ -19,8 +25,8 @@
 (defn u-header
   "Generates an underlined, multi-line setext style header, using the given underline character"
   [ch s]
-  (str s "  \n"
-       (reduce str (take (count s) (repeat ch))) "  \n"))
+  (str (break s)
+       (break (reduce str (take (count s) (repeat ch))))))
 
 ;; Pre-provided curried versions of u-header for h1 and h2
 (def uh1 (partial u-header "="))
