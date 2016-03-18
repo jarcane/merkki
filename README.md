@@ -4,7 +4,7 @@ A set of helper functions for generating Markdown-formatted strings
 
 ## Usage
 
-FIXME
+`merkki` is a semi-opinionated set of functions for generating markdown formatted strings according to the original standard of [John Gruber's Markdown](https://daringfireball.net/projects/markdown/syntax). The functions have been designed with composability in mind, and a future version of this library may adapt a Hiccup-like vector syntax for marking up and generating large amounts of .md text at once. 
 
 ## License
 
