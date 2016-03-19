@@ -2,6 +2,14 @@
   (:require [clojure.test :refer :all]
             [merkki.core :refer :all]))
 
+(deftest nl-test
+  (testing "Expect string with new line added"
+    (is (= (nl "Dave") "Dave\n"))))
+
+(deftest break-test
+  (testing "Expect string with two spaces and a newline"
+    (is (= (break "Dave") "Dave  \n"))))
+
 (deftest header-test
   (testing "Expect header-fied string of matching level to number"
     (is (= (header 2 "Dave") "## Dave  \n")))

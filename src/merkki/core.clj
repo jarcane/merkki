@@ -1,5 +1,10 @@
 (ns merkki.core)
 
+(defn nl
+  "Appends a string with a newline"
+  [s]
+  (str s "\n"))
+
 (defn break
   "Markdown standard allows hard-wrapping by not creating a new paragraph block automatically on new line.
    In order to guarantee that a <br>/newline is produced, a line must end in two spaces followed by new line.
