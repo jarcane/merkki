@@ -62,5 +62,7 @@
 
 (defn image
   ""
-  []
-  (str))
+  ([alt url]
+   (image alt url nil))
+  ([alt url title]
+   (str "!" (link alt url title))))

@@ -49,3 +49,14 @@
   (testing "Testing optional title parameter"
     (is (= (link "Dave" "http://www.dave.com" "Dave")
            "[Dave](http://www.dave.com \"Dave\")"))))
+
+(deftest image-test
+  (testing "Expect a properly marked up image link"
+    (is (= (image "Dave" "http://www.dave.com/dave.jpg")
+           "![Dave](http://www.dave.com/dave.jpg)")))
+  (testing "Testing optional title parameter"
+    (is (= (image "Dave" "http://www.dave.com/dave.jpg" "Dave")
+           "![Dave](http://www.dave.com/dave.jpg \"Dave\")")))
+  (testing "Image is a function of link"
+    (is (= (image "Dave" "http://www.dave.com/dave.jpg")
+           (str "!" (link "Dave" "http://www.dave.com/dave.jpg"))))))
