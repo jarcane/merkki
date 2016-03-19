@@ -41,3 +41,11 @@
 (deftest strong-test
   (testing "Expect bolded (strong em) string"
     (is (= (strong "Dave") "**Dave**"))))
+
+(deftest link-test
+  (testing "Expect a properly marked up link"
+    (is (= (link "Dave" "http://www.dave.com")
+           "[Dave](http://www.dave.com)")))
+  (testing "Testing optional title parameter"
+    (is (= (link "Dave" "http://www.dave.com" "Dave")
+           "[Dave](http://www.dave.com \"Dave\")"))))

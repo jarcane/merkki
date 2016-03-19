@@ -46,3 +46,21 @@
   "Wraps string for strong emphasis"
   [s]
   (str "**" s "**"))
+
+(defn link
+  "Given a test string and url string, returns a properly wrapped link
+   Optionally, a link title can be provided"
+  ([text url]
+   (link text url nil))
+  ([text url title]
+   (str "[" text "](" url (if title (str " \"" title "\"")) ")")))
+
+(defn code
+  ""
+  []
+  (str))
+
+(defn image
+  ""
+  []
+  (str))
