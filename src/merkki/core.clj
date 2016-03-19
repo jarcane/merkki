@@ -10,7 +10,7 @@
    In order to guarantee that a <br>/newline is produced, a line must end in two spaces followed by new line.
    See: https://daringfireball.net/projects/markdown/syntax#p"
   [s]
-  (str s "  \n"))
+  (str s (nl "  ")))
 
 (defn header
   "Given a number and a string, tags the string as that header level and adds a new line"
@@ -55,14 +55,15 @@
   ([text url title]
    (str "[" text "](" url (if title (str " \"" title "\"")) ")")))
 
-(defn code
-  ""
-  []
-  (str))
-
 (defn image
-  ""
+  "Given an alt-text, url, and optional title, returns a properly wrapped 
+   image link"
   ([alt url]
    (image alt url nil))
   ([alt url title]
    (str "!" (link alt url title))))
+
+(defn auto-link
+  "For self-wrapping links, returns the given url wrapped in <>"
+  [url]
+  (str "<" url ">"))

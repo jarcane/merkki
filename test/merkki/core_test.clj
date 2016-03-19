@@ -60,3 +60,8 @@
   (testing "Image is a function of link"
     (is (= (image "Dave" "http://www.dave.com/dave.jpg")
            (str "!" (link "Dave" "http://www.dave.com/dave.jpg"))))))
+
+(deftest auto-link-test
+  (testing "Expect a properly wrapped link"
+    (is (= (auto-link "http://dave.com")
+           "<http://dave.com>"))))
