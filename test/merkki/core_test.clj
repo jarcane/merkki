@@ -120,6 +120,14 @@
     (is (= (ol "Red" "Green" "Blue")
            "1. Red\n2. Green\n3. Blue\n  \n"))))
 
+(deftest code-block-test
+  (testing "Expect a properly laid out multiline code block"
+    (is (= (code-block "let x = 45;\nx += 1;")
+           "```\nlet x = 45;\nx += 1;\n```  \n")))
+  (testing "Optional language parameter for Github flavor"
+    (is (= (code-block "let x = 45;\nx += 1;" "javascript")
+           "```javascript\nlet x = 45;\nx += 1;\n```  \n"))))
+
 ;;;
 ;;; Misc elements
 ;;;

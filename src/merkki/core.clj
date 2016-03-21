@@ -113,6 +113,17 @@
        (reduce str)
        break))
 
+(defn code-block
+  "Wraps the given text in a code block, with optional language parameter according to Github flavor"
+  ([text]
+   (code-block text nil))
+  ([text language]
+   (str (if language
+          (nl (str "```" language))
+          (nl "```"))
+        (nl text)
+        (break "```"))))
+
 ;;;
 ;;; Misc elements
 ;;;
