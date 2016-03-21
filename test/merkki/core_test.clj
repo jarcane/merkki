@@ -8,6 +8,10 @@
   (:require [clojure.test :refer :all]
             [merkki.core :refer :all]))
 
+;;;
+;;; Helper functions
+;;;
+
 (deftest nl-test
   (testing "Expect string with new line added"
     (is (= (nl "Dave") "Dave\n"))))
@@ -15,6 +19,15 @@
 (deftest break-test
   (testing "Expect string with two spaces and a newline"
     (is (= (break "Dave") "Dave  \n"))))
+
+(deftest wrap-test
+  (testing "Expect string wrapped in the given characters"
+    (is (= (wrap "*" "Dave")
+           "*Dave*"))))
+
+;;;
+;;; Header functions
+;;;
 
 (deftest header-test
   (testing "Expect header-fied string of matching level to number"
@@ -40,13 +53,23 @@
            (str "Dave is fat\n"
                 "-----------  \n")))))
 
+;;;
+;;; Span elements
+;;;
+
 (deftest em-test
   (testing "Expect emphasised string"
-    (is (= (em "Dave") "*Dave*"))))
+    (is (= (em "Dave") "*Dave*")))
+  (testing "em is a function of wrap"
+    (is (= (em "Dave")
+           (wrap "*" "Dave")))))
 
 (deftest strong-test
   (testing "Expect bolded (strong em) string"
-    (is (= (strong "Dave") "**Dave**"))))
+    (is (= (strong "Dave") "**Dave**")))
+  (testing "strong is a function of wrap"
+    (is (= (strong "Dave")
+           (wrap "**" "Dave")))))
 
 (deftest link-test
   (testing "Expect a properly marked up link"
@@ -78,4 +101,21 @@
            "``var foo = 5``")))
   (testing "Single backtick should be usable within the string"
     (is (= (code "`(foo ,bar)")
-           "```(foo ,bar)``"))))
+           "```(foo ,bar)``")))
+  (testing "code is a function of wrap"
+    (is (= (code "(+ 1 2 3)")
+           (wrap "``" "(+ 1 2 3)")))))
+
+;;;
+;;; Block Elements
+;;;
+
+
+;;;
+;;; Misc elements
+;;;
+
+(deftest hr-test
+  (testing "Returns proper horizontal rule line"
+    (is (= (hr)
+           "***  \n"))))

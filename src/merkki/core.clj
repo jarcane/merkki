@@ -106,4 +106,4 @@
 
 (def hr
   "Inserts a horizontal rule"
-  (break "***"))
+  (partial break "***"))
