@@ -24,14 +24,14 @@
 (deftest u-header-test
   (testing "Expect two line string, with second line matching length of first with underline character"
     (is (= (u-header "=" "Dave")
-           (str "Dave  \n"
+           (str "Dave\n"
                 "====  \n"))))
   (testing "Test curried forms of u-header"
     (is (= (uh1 "Dave is fat")
-           (str "Dave is fat  \n"
+           (str "Dave is fat\n"
                 "===========  \n")))
     (is (= (uh2 "Dave is fat")
-           (str "Dave is fat  \n"
+           (str "Dave is fat\n"
                 "-----------  \n")))))
 
 (deftest em-test
@@ -65,3 +65,11 @@
   (testing "Expect a properly wrapped link"
     (is (= (auto-link "http://dave.com")
            "<http://dave.com>"))))
+
+(deftest code-test
+  (testing "Expect a backtick wrapped version of string"
+    (is (= (code "var foo = 5")
+           "``var foo = 5``")))
+  (testing "Single backtick should be usable within the string"
+    (is (= (code "`(foo ,bar)")
+           "```(foo ,bar)``"))))

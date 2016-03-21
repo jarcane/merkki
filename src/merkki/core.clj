@@ -1,16 +1,30 @@
 (ns merkki.core)
 
+;;;
+;;; Helper functions
+;;;
+
 (defn nl
   "Appends a string with a newline"
   [s]
   (str s "\n"))
 
 (defn break
-  "Markdown standard allows hard-wrapping by not creating a new paragraph block automatically on new line.
-   In order to guarantee that a <br>/newline is produced, a line must end in two spaces followed by new line.
+  "Markdown standard allows hard-wrapping by not creating a new paragraph block automatically 
+   on new line. In order to guarantee that a <br> is inserted, a line must end in two spaces 
+   followed by new line.
    See: https://daringfireball.net/projects/markdown/syntax#p"
   [s]
   (str s (nl "  ")))
+
+(defn wrap
+  "Helper function. Wraps a given string in the indicated characters."
+  [chars s]
+  (str chars s chars))
+
+;;;
+;;; Header functions
+;;;
 
 (defn header
   "Given a number and a string, tags the string as that header level and adds a new line"
@@ -30,22 +44,24 @@
 (defn u-header
   "Generates an underlined, multi-line setext style header, using the given underline character"
   [ch s]
-  (str (break s)
+  (str (nl s)
        (break (reduce str (take (count s) (repeat ch))))))
 
 ;; Pre-provided curried versions of u-header for h1 and h2
 (def uh1 (partial u-header "="))
 (def uh2 (partial u-header "-"))
 
-(defn em 
-  "Wraps string for emphasis"
-  [s]
-  (str "*" s "*"))
+;;;
+;;; Span elements
+;;;
 
-(defn strong
+(def em 
+  "Wraps string for emphasis"
+  (partial wrap "*"))
+
+(def strong
   "Wraps string for strong emphasis"
-  [s]
-  (str "**" s "**"))
+  (partial wrap "**"))
 
 (defn link
   "Given a test string and url string, returns a properly wrapped link
@@ -67,3 +83,8 @@
   "For self-wrapping links, returns the given url wrapped in <>"
   [url]
   (str "<" url ">"))
+
+(def code
+  "Wraps string in double backtick, for inline code. Double is used instead of single, to allow safe use of 
+   single backtick within the string."
+  (partial wrap "``"))
