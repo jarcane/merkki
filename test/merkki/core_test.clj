@@ -1,3 +1,9 @@
+;;; Merkki - a Clojure library for Markdown generation
+;;;
+;;; (c) 2016 John S. Berry III
+;;;
+;;; This file is licensed under the Affero GPL v3. See LICENSE for more details
+
 (ns merkki.core-test
   (:require [clojure.test :refer :all]
             [merkki.core :refer :all]))

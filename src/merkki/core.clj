@@ -1,3 +1,9 @@
+;;; Merkki - a Clojure library for Markdown generation
+;;;
+;;; (c) 2016 John S. Berry III
+;;;
+;;; This file is licensed under the Affero GPL v3. See LICENSE for more details
+
 (ns merkki.core)
 
 ;;;
@@ -88,3 +94,7 @@
   "Wraps string in double backtick, for inline code. Double is used instead of single, to allow safe use of 
    single backtick within the string."
   (partial wrap "``"))
+
+;;;
+;;; Block Elements
+;;;
