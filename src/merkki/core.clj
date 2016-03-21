@@ -33,7 +33,7 @@
 ;;;
 
 (defn header
-  "Given a number and a string, tags the string as that header level and adds a new line"
+  "Given a number and a string, tags the string as that header level (atx-style) and adds a new line"
   [n s]
   (str (reduce str (take n (repeat "#")))
        " "
@@ -98,3 +98,12 @@
 ;;;
 ;;; Block Elements
 ;;;
+
+
+;;;
+;;; Misc elements
+;;;
+
+(def hr
+  "Inserts a horizontal rule"
+  (break "***"))
