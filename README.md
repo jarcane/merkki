@@ -10,4 +10,4 @@ A set of helper functions for generating Markdown-formatted strings
 
 Copyright © 2016 John S. Berry III
 
-Distributed under the Affero GNU General Public License v3. See LICENSE for more information.
+Distributed under the GNU Affero General Public License v3. See LICENSE for more information.
