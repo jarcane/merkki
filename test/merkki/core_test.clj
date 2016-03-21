@@ -1,6 +1,6 @@
 ;;; Merkki - a Clojure library for Markdown generation
 ;;;
-;;; (c) 2016 John S. Berry III
+;;; Copyright (c) 2016 John S. Berry III
 ;;;
 ;;; This file is licensed under the Affero GPL v3. See LICENSE for more details
 
@@ -110,6 +110,15 @@
 ;;; Block Elements
 ;;;
 
+(deftest ul-test
+  (testing "Expect a properly ordered and marked up list from the given arguments"
+    (is (= (ul "Red" "Green" "Blue")
+           "* Red\n* Green\n* Blue\n  \n"))))
+
+(deftest ol-test
+  (testing "Expect a properly ordered and numbered list from the given arguments"
+    (is (= (ol "Red" "Green" "Blue")
+           "1. Red\n2. Green\n3. Blue\n  \n"))))
 
 ;;;
 ;;; Misc elements

@@ -1,6 +1,6 @@
 ;;; Merkki - a Clojure library for Markdown generation
 ;;;
-;;; (c) 2016 John S. Berry III
+;;; Copyright (c) 2016 John S. Berry III
 ;;;
 ;;; This file is licensed under the Affero GPL v3. See LICENSE for more details
 
@@ -99,6 +99,19 @@
 ;;; Block Elements
 ;;;
 
+(defn ul
+  "Creates an unordered list from the given strings. Newlines are not necessary."
+  [& rest]
+  (break (reduce #(str %1 "* " (nl %2)) "" rest)))
+
+(defn ol
+  "Creates a properly numbered ordered list from the given strings. Newlines are not necessary."
+  [& rest]
+  (->> rest
+       (map #(str %1 ". " (nl %2))
+            (range 1 (inc (count rest))))
+       (reduce str)
+       break))
 
 ;;;
 ;;; Misc elements
