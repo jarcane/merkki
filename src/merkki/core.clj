@@ -19,9 +19,10 @@
   "Markdown standard allows hard-wrapping by not creating a new paragraph block automatically 
    on new line. In order to guarantee that a <br> is inserted, a line must end in two spaces 
    followed by new line.
-   See: https://daringfireball.net/projects/markdown/syntax#p"
-  [s]
-  (str s (nl "  ")))
+  See: https://daringfireball.net/projects/markdown/syntax#p"
+  ([] (nl "  "))
+  ([s]
+   (str s (nl "  "))))
 
 (defn wrap
   "Helper function. Wraps a given string in the indicated characters."
@@ -37,7 +38,7 @@
   [n s]
   (str (reduce str (take n (repeat "#")))
        " "
-       (break s)))
+       (nl s)))
 
 ;; Pre-provided curried versions of header for quicker use
 (def h1 (partial header 1))
@@ -51,7 +52,7 @@
   "Generates an underlined, multi-line setext style header, using the given underline character"
   [ch s]
   (str (nl s)
-       (break (reduce str (take (count s) (repeat ch))))))
+       (nl (reduce str (take (count s) (repeat ch))))))
 
 ;; Pre-provided curried versions of u-header for h1 and h2
 (def uh1 (partial u-header "="))
@@ -102,16 +103,15 @@
 (defn ul
   "Creates an unordered list from the given strings. Newlines are not necessary."
   [& rest]
-  (break (reduce #(str %1 "* " (nl %2)) "" rest)))
+  (reduce #(str %1 "* " (nl %2)) "" rest))
 
 (defn ol
   "Creates a properly numbered ordered list from the given strings. Newlines are not necessary."
   [& rest]
   (->> rest
        (map #(str %1 ". " (nl %2))
-            (range 1 (inc (count rest))))
-       (reduce str)
-       break))
+            (iterate inc 1))
+       (reduce str)))
 
 (defn code-block
   "Wraps the given text in a code block, with optional language parameter according to Github flavor"
@@ -122,7 +122,14 @@
           (nl (str "```" language))
           (nl "```"))
         (nl text)
-        (break "```"))))
+        (nl "```"))))
+
+(defn blockquote
+  "Wraps a series of given strings as individual lines of a blockquoted paragraph"
+  [& rest]
+  (->> rest
+       (map #(str "> " (nl %)))
+       (reduce str)))
 
 ;;;
 ;;; Misc elements
@@ -130,4 +137,21 @@
 
 (def hr
   "Inserts a horizontal rule"
-  (partial break "***"))
+  (partial nl "***"))
+
+;;;
+;;; The markdown function
+;;;
+
+(defn handle-element
+  "The main element handler for each block in a markdown sequence"
+  [elem]
+  elem)
+
+(defn markdown
+  "Given a vector of strings and/or merkki functions, converts them to a markdown formatted text"
+  [v]
+  (->> v
+       (map handle-element)
+       (map break)
+       (reduce str)))
