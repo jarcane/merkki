@@ -12,7 +12,6 @@ To use it, add this to your lein dependencies:
 [merkki "0.1.0-SNAPSHOT"]
 ```
 
-
 Merkki's markdown syntax is in the form of nested vectors, and these vectors can be prepended with other merkki functions that return markdown. For example, the following code:
 
 ```clj
@@ -45,4 +44,4 @@ This is an example text
 
 Copyright © 2016 John S. Berry III
 
-Distributed under the GNU Affero General Public License v3. See LICENSE for more information.
+Distributed under the Eclipse Public License v1. See LICENSE for more information.

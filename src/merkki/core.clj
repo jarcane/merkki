@@ -2,7 +2,7 @@
 ;;;
 ;;; Copyright (c) 2016 John S. Berry III
 ;;;
-;;; This file is licensed under the Affero GPL v3. See LICENSE for more details
+;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.core)
 
