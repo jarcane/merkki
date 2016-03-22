@@ -170,7 +170,8 @@
 ;;;
 
 (defn markdown
-  "Given a vector of strings and/or merkki functions, converts them to a markdown formatted text"
+  "Given a vector of markdown elements, processes each element and assembles the result into a single 
+  markdown formatted string"
   [v]
   (->> v
        (map handle-element)

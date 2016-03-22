@@ -3,9 +3,8 @@ All notable changes to this project will be documented in this file. This change
 
 ## Unreleased
 ### Added
-- Initial commit
-- `header`, `em`, and `strong` functions
-- `u-header` function for setext-style underlined headers
+- 
 
 ## 0.1.0-SNAPSHOT - 2016-03-18
 ### Added
+- Initial proof of concept release

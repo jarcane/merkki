@@ -1,10 +1,38 @@
 # merkki
 
-A set of helper functions for generating Markdown-formatted strings
+A Clojure library for rendering Markdown formatted strings
 
 ## Usage
 
-`merkki` is a semi-opinionated set of functions for generating markdown formatted strings according to the original standard of [John Gruber's Markdown](https://daringfireball.net/projects/markdown/syntax). The functions have been designed with composability in mind, and a future version of this library may adapt a Hiccup-like vector syntax for marking up and generating large amounts of .md text at once. 
+`merkki` is a semi-opinionated set of functions for generating Markdown formatted strings. In addition to individual functions for various types of Markdown syntax, it also provides the `markdown` function itself, which takes a vector of elements and returns a Markdown-formatted string.
+
+Merkki's markdown syntax is in the form of nested vectors, and these vectors can be prepended with other merkki functions that return markdown. For example, the following code:
+
+```clj
+(markdown
+  [[uh2 "Example"]
+   "This is an example text"
+   [hr]
+   [ul
+    "Here's"
+    "A"
+    "List"]])
+```
+    
+Will produce the following Markdown output:
+
+```md
+Example
+-------
+
+This is an example text
+
+***
+
+* Here's
+* A
+* List
+```
 
 ## License
 
