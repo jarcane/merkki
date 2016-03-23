@@ -41,11 +41,11 @@
 ;;; Methods for header elements
 ;;;
 
-(defmethod md-tag :h1 [_ & xs] (apply h1 xs))
-(defmethod md-tag :h2 [_ & xs] (apply h2 xs))
-(defmethod md-tag :h3 [_ & xs] (apply h3 xs))
-(defmethod md-tag :h4 [_ & xs] (apply h4 xs))
-(defmethod md-tag :h5 [_ & xs] (apply h5 xs))
-(defmethod md-tag :h6 [_ & xs] (apply h6 xs))
-(defmethod md-tag :uh1 [_ & xs] (apply uh1 xs))
-(defmethod md-tag :uh2 [_ & xs] (apply uh2 xs))
+(defmethod md-tag :h1 [_ s] (h1 s))
+(defmethod md-tag :h2 [_ s] (h2 s))
+(defmethod md-tag :h3 [_ s] (h3 s))
+(defmethod md-tag :h4 [_ s] (h4 s))
+(defmethod md-tag :h5 [_ s] (h5 s))
+(defmethod md-tag :h6 [_ s] (h6 s))
+(defmethod md-tag :uh1 [_ s] (uh1 s))
+(defmethod md-tag :uh2 [_ s] (uh2 s))

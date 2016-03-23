@@ -50,9 +50,9 @@
 ;;; Methods for span elements
 ;;;
 
-(defmethod md-tag :em [_ & xs] (apply em xs))
-(defmethod md-tag :strong [_ & xs] (apply strong xs))
+(defmethod md-tag :em [_ s] (em s))
+(defmethod md-tag :strong [_ s] (strong s))
 (defmethod md-tag :link [_ & xs] (apply link xs))
 (defmethod md-tag :image [_ & xs] (apply image xs))
-(defmethod md-tag :auto-link [_ & xs] (apply auto-link xs))
-(defmethod md-tag :code [_ & xs] (apply code xs))
+(defmethod md-tag :auto-link [_ url] (auto-link url))
+(defmethod md-tag :code [_ s] (code s))
