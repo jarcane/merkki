@@ -15,7 +15,7 @@
 (defn header
   "Given a number and a string, tags the string as that header level (atx-style) and adds a new line"
   [n s]
-  (str (reduce str (take (Integer. n) (repeat "#")))
+  (str (reduce str (take n (repeat "#")))
        " "
        (nl s)))
 

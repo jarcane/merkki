@@ -28,7 +28,6 @@
   "The main element handler for each block in a markdown sequence"
   [elem]
   (cond
-   (string? elem) elem
    (vector? elem) (if (keyword? (first elem))
                     (->> (rest elem)
                          (map handle-element)
@@ -36,7 +35,7 @@
                     (->> elem
                          (map handle-element)
                          (reduce str)))
-   :else (str elem)))
+   :else elem))
 
 ;;;
 ;;; The markdown function
