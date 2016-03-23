@@ -9,17 +9,19 @@ A Clojure library for rendering Markdown formatted strings
 To use it, add this to your lein dependencies:
 
 ```
-[merkki "0.1.0-SNAPSHOT"]
+[merkki "0.2.0"]
 ```
 
-Merkki's markdown syntax is in the form of nested vectors, and these vectors can be prepended with other merkki functions that return markdown. For example, the following code:
+Merkki's markdown syntax is in the form of nested vectors, which can be tagged with keywords to indicate specific markup. For example, the following code:
 
 ```clj
+(require '[merkki.core :refer [markdown]])
+
 (markdown
-  [[uh2 "Example"]
+  [[:uh2 "Example"]
    "This is an example text"
-   [hr]
-   [ul
+   [:hr]
+   [:ul
     "Here's"
     "A"
     "List"]])
@@ -39,6 +41,8 @@ This is an example text
 * A
 * List
 ```
+
+New tags can be defined by extending the multimethod `md-tag` found in the `merkki.tags` namespace. 
 
 ## License
 
