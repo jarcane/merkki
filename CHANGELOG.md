@@ -8,3 +8,8 @@ All notable changes to this project will be documented in this file. This change
 ## 0.1.0-SNAPSHOT - 2016-03-18
 ### Added
 - Initial proof of concept release
+
+## 0.2.0 - 2016-03-23
+- Refactored and reorganized code base
+- New vector based syntax for markdown function
+- Extensible multimethod approach for defining tags
