@@ -5,11 +5,7 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.core
-  (:require [merkki.util :refer :all]
-            [merkki.headers :refer :all]
-            [merkki.span :refer :all]
-            [merkki.block :refer :all]
-            [merkki.misc :refer :all]))
+  (:require [merkki.util :refer :all]))
 
 ;;;
 ;;; Element handlers for markdown function
