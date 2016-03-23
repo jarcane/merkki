@@ -5,13 +5,18 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.core
-  (:require [merkki.util :refer :all]))
+  (:require [merkki.util :refer :all]
+            [merkki.tags :refer [md-tag]]
+            merkki.block
+            merkki.headers
+            merkki.misc
+            merkki.span))
 
 ;;;
 ;;; Element handlers for markdown function
 ;;;
 
-(defn ensure-nl
+(defn- ensure-nl
   "Ensures that the element ends in a newline"
   [elem]
   (if (= \newline
@@ -19,15 +24,15 @@
     elem
     (nl elem)))
 
-(defn handle-element
+(defn- handle-element
   "The main element handler for each block in a markdown sequence"
   [elem]
   (cond
    (string? elem) elem
-   (vector? elem) (if (fn? (first elem))
+   (vector? elem) (if (keyword? (first elem))
                     (->> (rest elem)
                          (map handle-element)
-                         (apply (first elem)))
+                         (apply md-tag (first elem)))
                     (->> elem
                          (map handle-element)
                          (reduce str)))

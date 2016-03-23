@@ -5,7 +5,8 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.block
-  (:require [merkki.util :refer :all]))
+  (:require [merkki.util :refer :all]
+            [merkki.tags :refer [md-tag]]))
 
 ;;;
 ;;; Block Elements
@@ -13,13 +14,13 @@
 
 (defn ul
   "Creates an unordered list from the given strings. Newlines are not necessary."
-  [& rest]
-  (reduce #(str %1 "* " (nl %2)) "" rest))
+  [& xs]
+  (reduce #(str %1 "* " (nl %2)) "" xs))
 
 (defn ol
   "Creates a properly numbered ordered list from the given strings. Newlines are not necessary."
-  [& rest]
-  (->> rest
+  [& xs]
+  (->> xs
        (map #(str %1 ". " (nl %2))
             (iterate inc 1))
        (reduce str)))
@@ -37,7 +38,16 @@
 
 (defn blockquote
   "Wraps a series of given strings as individual lines of a blockquoted paragraph"
-  [& rest]
-  (->> rest
+  [& xs]
+  (->> xs
        (map #(str "> " (nl %)))
        (reduce str)))
+
+;;;
+;;; Methods for block elements
+;;;
+
+(defmethod md-tag :ul [_ & xs] (apply ul xs))
+(defmethod md-tag :ol [_ & xs] (apply ol xs))
+(defmethod md-tag :code-block [_ & xs] (apply code-block xs))
+(defmethod md-tag :blockquote [_ & xs] (apply blockquote xs))

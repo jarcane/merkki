@@ -5,7 +5,8 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.span
-  (:require [merkki.util :refer :all]))
+  (:require [merkki.util :refer :all]
+            [merkki.tags :refer [md-tag]]))
 
 ;;;
 ;;; Span elements
@@ -44,3 +45,14 @@
   "Wraps string in double backtick, for inline code. Double is used instead of single, to allow safe use of 
    single backtick within the string."
   (partial wrap "``"))
+
+;;;
+;;; Methods for span elements
+;;;
+
+(defmethod md-tag :em [_ & xs] (apply em xs))
+(defmethod md-tag :strong [_ & xs] (apply strong xs))
+(defmethod md-tag :link [_ & xs] (apply link xs))
+(defmethod md-tag :image [_ & xs] (apply image xs))
+(defmethod md-tag :auto-link [_ & xs] (apply auto-link xs))
+(defmethod md-tag :code [_ & xs] (apply code xs))

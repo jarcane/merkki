@@ -5,7 +5,8 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.headers
-  (:require [merkki.util :refer :all]))
+  (:require [merkki.util :refer :all]
+            [merkki.tags :refer [md-tag]]))
 
 ;;;
 ;;; Header functions
@@ -35,3 +36,16 @@
 ;; Pre-provided curried versions of u-header for h1 and h2
 (def uh1 (partial u-header "="))
 (def uh2 (partial u-header "-"))
+
+;;;
+;;; Methods for header elements
+;;;
+
+(defmethod md-tag :h1 [_ & xs] (apply h1 xs))
+(defmethod md-tag :h2 [_ & xs] (apply h2 xs))
+(defmethod md-tag :h3 [_ & xs] (apply h3 xs))
+(defmethod md-tag :h4 [_ & xs] (apply h4 xs))
+(defmethod md-tag :h5 [_ & xs] (apply h5 xs))
+(defmethod md-tag :h6 [_ & xs] (apply h6 xs))
+(defmethod md-tag :uh1 [_ & xs] (apply uh1 xs))
+(defmethod md-tag :uh2 [_ & xs] (apply uh2 xs))
