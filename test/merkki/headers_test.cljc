@@ -5,8 +5,8 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.headers-test
-  (:require [clojure.test :refer :all]
-            [clojure.java.io :as io]
+  (:require #?(:clj [clojure.test :refer :all]
+               :cljs [cljs.test :refer-macros [deftest testing is]])
             [merkki.headers :refer :all]))
 
 ;;;
