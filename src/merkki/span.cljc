@@ -5,7 +5,7 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.span
-  (:require [merkki.util :refer :all]
+  (:require [merkki.util :refer [wrap]]
             [merkki.tags :refer [md-tag]]))
 
 ;;;

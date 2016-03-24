@@ -7,7 +7,7 @@
 (ns merkki.util-test
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
-            [merkki.util :refer :all]))
+            [merkki.util :refer [nl break wrap]]))
 
 ;;;
 ;;; Helper functions

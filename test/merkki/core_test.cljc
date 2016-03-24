@@ -8,12 +8,7 @@
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
             #?(:clj [clojure.java.io :as io])
-            [merkki.core :refer :all]
-            [merkki.headers :refer :all]
-            [merkki.misc :refer :all]
-            [merkki.span :refer :all]
-            [merkki.block :refer :all]
-            [merkki.util :refer :all]))
+            [merkki.core :refer [markdown]]))
 
 ;;;
 ;;; Markdown test

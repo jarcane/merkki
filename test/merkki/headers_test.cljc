@@ -7,7 +7,7 @@
 (ns merkki.headers-test
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
-            [merkki.headers :refer :all]))
+            [merkki.headers :refer [header h1 h2 h3 h4 h5 h6 u-header uh1 uh2]]))
 
 ;;;
 ;;; Header functions

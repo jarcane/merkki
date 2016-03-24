@@ -5,7 +5,7 @@
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
 (ns merkki.core
-  (:require [merkki.util :refer :all]
+  (:require [merkki.util :refer [nl break]]
             [merkki.tags :refer [md-tag]]
             merkki.block
             merkki.headers

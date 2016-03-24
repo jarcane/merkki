@@ -7,7 +7,7 @@
 (ns merkki.misc-test
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
-            [merkki.misc :refer :all]))
+            [merkki.misc :refer [hr]]))
 
 ;;;
 ;;; Misc elements

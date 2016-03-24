@@ -7,8 +7,8 @@
 (ns merkki.span-test
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
-            [merkki.span :refer :all]
-            [merkki.util :refer :all]))
+            [merkki.span :refer [em strong link image auto-link code]]
+            [merkki.util :refer [wrap]]))
 
 ;;;
 ;;; Span elements
