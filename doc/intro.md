@@ -107,7 +107,7 @@ Block elements end each line generated with a new line.
 
 Let's say that we wish to add a new tag for doing underline style emphasis. For example:
 
-```
+```clj
 (ns example.merkki
   (:require [merkki.core :refer [markdown]]
             [merkki.tags :refer [md-tag]]
