@@ -7,7 +7,7 @@
 (ns merkki.block-test
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
-            [merkki.span :refer [ul ol code-block blockquote]]))
+            [merkki.block :refer [ul ol code-block blockquote]]))
 
 ;;;
 ;;; Block Elements
