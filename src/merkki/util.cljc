@@ -4,8 +4,7 @@
 ;;;
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
-(ns merkki.util
-  (:require [merkki.util :refer [nl]]))
+(ns merkki.util)
 
 ;;;
 ;;; Helper functions

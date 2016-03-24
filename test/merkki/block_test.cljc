@@ -4,7 +4,7 @@
 ;;;
 ;;; This file is licensed under the Eclipse Public License v1.0. See LICENSE for more details
 
-(ns merkki.span-test
+(ns merkki.block-test
   (:require #?(:clj [clojure.test :refer :all]
                :cljs [cljs.test :refer-macros [deftest testing is]])
             [merkki.span :refer [ul ol code-block blockquote]]))
