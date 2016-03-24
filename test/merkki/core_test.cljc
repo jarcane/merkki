@@ -51,4 +51,5 @@
                               "is just how we roll."]])]
              (spit "/tmp/merkki-temp.md" test-text)
              test-text)
-           (slurp (io/resource "merkki-test.md"))))))
+           #?(:clj (slurp (io/resource "merkki-test.md"))
+              :cljs ""))))) ;; FIXME: Find alternate method to bring in test spec doc in CLJS

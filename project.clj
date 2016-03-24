@@ -6,4 +6,12 @@
 
   :dependencies [[org.clojure/clojure "1.7.0"]]
 
-  :plugins [[cider/cider-nrepl "0.8.1"]])
+  :plugins [[cider/cider-nrepl "0.8.1"]
+            [lein-doo "0.1.6"]]
+
+  :cljsbuild
+  {:builds [{:id "test"
+             :source-paths ["src" "test"]
+             :compiler {:output-to "resources/public/js/testable.js"
+                        :main merkki.cljs-test
+                        :optimizations :none}}]})
