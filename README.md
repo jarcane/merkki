@@ -9,7 +9,7 @@ A Clojure(Script) library for rendering Markdown formatted strings
 To use it, add this to your lein dependencies:
 
 ```
-[merkki "0.2.0"]
+[merkki "0.2.1"]
 ```
 
 Merkki's markdown syntax is in the form of nested vectors, which can be tagged with keywords to indicate specific markup. For example, the following code:
