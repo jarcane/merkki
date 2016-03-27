@@ -13,3 +13,7 @@ All notable changes to this project will be documented in this file. This change
 - Refactored and reorganized code base
 - New vector based syntax for markdown function
 - Extensible multimethod approach for defining tags
+
+## 0.2.1 - 2016-03-27
+- Switched to .cljc format
+- Added support and tests for ClojureScript

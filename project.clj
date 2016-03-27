@@ -11,10 +11,16 @@
             [lein-doo "0.1.6"]]
 
   :cljsbuild
-  {:builds [{:id "test"
+  {:builds [{:id "node-test"
              :source-paths ["src" "test"]
              :compiler {:output-to "target/testable.js"
                         :output-dir "target"
                         :target :nodejs
+                        :main merkki.cljs-test
+                        :optimizations :none}}
+            {:id "browser-test"
+             :source-paths ["src" "test"]
+             :compiler {:output-to "target/testable.js"
+                        :output-dir "target"
                         :main merkki.cljs-test
                         :optimizations :none}}]})

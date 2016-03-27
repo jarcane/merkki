@@ -1,6 +1,6 @@
 # merkki
 
-A Clojure library for rendering Markdown formatted strings
+A Clojure(Script) library for rendering Markdown formatted strings
 
 ## Usage
 
@@ -42,7 +42,21 @@ This is an example text
 * List
 ```
 
-New tags can be defined by extending the multimethod `md-tag` found in the `merkki.tags` namespace. 
+New tags can be defined by extending the multimethod `md-tag` found in the `merkki.tags` namespace.
+
+## Development
+
+Testing is configured for both Clojure and ClojureScript (via `doo`).
+
+To run Clojure tests do:
+
+```
+lein test
+```
+
+For ClojureScript, tests are provided for both node and browser targets. Node tests can be run with `lein doo node node-test` provided node is installed.
+
+For browser testing, doo uses Karma, which you will need to install via npm. See the [doo readme](https://github.com/bensu/doo) for instructions on how to set this up, and install the necessary Karma plugins for the browsers you wish to target. Once installed, you can do `lein doo [browser-name] browser-test`, provided you've installed the Karma plugin for that browser. Note that browser testing with doo/Karma is still in the experimental phase and has a few quirks; in particular it doesn't tend to run the tests automatically on first run, you will need to make and save some minor change to trigger the auto-run.
 
 ## License
 
