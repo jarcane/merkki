@@ -12,6 +12,8 @@
   :cljsbuild
   {:builds [{:id "test"
              :source-paths ["src" "test"]
-             :compiler {:output-to "resources/public/js/testable.js"
+             :compiler {:output-to "target/testable.js"
+                        :output-dir "target"
+                        :target :nodejs
                         :main merkki.cljs-test
                         :optimizations :none}}]})
