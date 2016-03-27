@@ -17,4 +17,5 @@
   (fn [x & _] x))
 
 (defmethod md-tag :default invalid-key [k & rest]
-  (throw (Exception. (str "Unrecognized key: " (pr-str k)))))
+  (throw (#?(:clj Exception.
+             :cljs js/Error.) (str "Unrecognized key: " (pr-str k)))))
