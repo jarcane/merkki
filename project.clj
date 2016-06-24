@@ -1,4 +1,4 @@
-(defproject merkki "0.2.1"
+(defproject merkki "0.3.0"
   :description "A Clojure(Script) library for generating Markdown formatted text."
   :url "http://github.com/jarcane/merkki"
   :license {:name "Eclipse Public License"
