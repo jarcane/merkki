@@ -1,4 +1,5 @@
-# merkki
+# merkki 
+[![Clojars Project](https://img.shields.io/clojars/v/merkki.svg)](https://clojars.org/merkki)
 
 A Clojure(Script) library for rendering Markdown formatted strings
 
